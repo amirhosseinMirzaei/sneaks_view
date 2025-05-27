@@ -43,7 +43,7 @@ class _State extends State<ImageListView> {
 
     return Transform.rotate(
       angle: 1.96 * pi,
-      child: SizedBox(height: 130,child: ListView.builder(controller: _scrollController,scrollDirection: Axis.horizontal,itemCount: 10,itemBuilder: (BuildContext context,int index){
+      child: SizedBox(height: 130,child: ListView.builder(controller: _scrollController,scrollDirection: Axis.horizontal,itemCount: 5,itemBuilder: (BuildContext context,int index){
       return _ImageTile(image:'asset/img/${widget.startIndex+index}.PNG' );
       }),),
     );
@@ -59,7 +59,7 @@ class _ImageTile extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
   return Hero(tag: image,
-  child: Image.asset(image,width: 140,));
+  child: Image.asset(image,width: 130,));
   }
   
 }
