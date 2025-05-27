@@ -16,7 +16,12 @@ class HomeScreen extends StatelessWidget {
               child: ShaderMask(
                 blendMode: BlendMode.dstOut,
                 shaderCallback: (rect) {
-                  return LinearGradient(colors: [Colors.transparent, Colors.transparent]).createShader(rect);
+                  return LinearGradient(
+                    begin: Alignment.topCenter,
+                   end: Alignment.bottomCenter,
+                    colors: [Colors.transparent, Colors.transparent, Colors.black.withOpacity(0.8), Colors.black.withOpacity(0.9), Colors.black],
+                    stops: [0, 0.62, 0.67, 0.85,1],
+                  ).createShader(rect);
                 },
                 child: Column(
                   children: [
