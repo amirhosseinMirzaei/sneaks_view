@@ -1,0 +1,172 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Nike Air Max",
+      "image": "asset/img/1.PNG",
+      "originalPrice": 320,
+      "discountedPrice": 275,
+      "country": "USA"
+    },
+    {
+      "id": 2,
+      "name": "Adidas Ultraboost",
+      "image": "asset/img/2.PNG",
+      "originalPrice": 300,
+      "discountedPrice": 249,
+      "country": "Germany"
+    },
+    {
+      "id": 3,
+      "name": "Puma RS-X",
+      "image": "asset/img/3.PNG",
+      "originalPrice": 280,
+      "discountedPrice": 230,
+      "country": "Germany"
+    },
+    {
+      "id": 4,
+      "name": "Reebok Classic",
+      "image": "asset/img/4.PNG",
+      "originalPrice": 220,
+      "discountedPrice": 190,
+      "country": "UK"
+    },
+    {
+      "id": 5,
+      "name": "Converse Chuck Taylor",
+      "image": "asset/img/5.PNG",
+      "originalPrice": 180,
+      "discountedPrice": 150,
+      "country": "USA"
+    },
+    {
+      "id": 6,
+      "name": "New Balance 997",
+      "image": "asset/img/6.PNG",
+      "originalPrice": 270,
+      "discountedPrice": 225,
+      "country": "USA"
+    },
+    {
+      "id": 7,
+      "name": "Vans Old Skool",
+      "image": "asset/img/7.PNG",
+      "originalPrice": 200,
+      "discountedPrice": 160,
+      "country": "USA"
+    },
+    {
+      "id": 8,
+      "name": "ASICS Gel-Lyte III",
+      "image": "asset/img/8.PNG",
+      "originalPrice": 260,
+      "discountedPrice": 210,
+      "country": "Japan"
+    },
+    {
+      "id": 9,
+      "name": "Jordan Retro 1",
+      "image": "asset/img/9.PNG",
+      "originalPrice": 350,
+      "discountedPrice": 310,
+      "country": "USA"
+    },
+    {
+      "id": 10,
+      "name": "Fila Disruptor II",
+      "image": "asset/img/10.PNG",
+      "originalPrice": 190,
+      "discountedPrice": 140,
+      "country": "South Korea"
+    },
+    {
+      "id": 11,
+      "name": "Under Armour HOVR",
+      "image": "asset/img/11.PNG",
+      "originalPrice": 260,
+      "discountedPrice": 200,
+      "country": "USA"
+    },
+    {
+      "id": 12,
+      "name": "Nike Air Zoom Pegasus",
+      "image": "asset/img/12.PNG",
+      "originalPrice": 310,
+      "discountedPrice": 260,
+      "country": "USA"
+    },
+    {
+      "id": 13,
+      "name": "Adidas NMD R1",
+      "image": "asset/img/13.PNG",
+      "originalPrice": 290,
+      "discountedPrice": 240,
+      "country": "Germany"
+    },
+    {
+      "id": 14,
+      "name": "Puma Suede Classic",
+      "image": "asset/img/14.PNG",
+      "originalPrice": 230,
+      "discountedPrice": 190,
+      "country": "Germany"
+    },
+    {
+      "id": 15,
+      "name": "Reebok Zig Kinetica",
+      "image": "asset/img/15.PNG",
+      "originalPrice": 250,
+      "discountedPrice": 210,
+      "country": "UK"
+    },
+    {
+      "id": 16,
+      "name": "Converse All Star",
+      "image": "asset/img/16.PNG",
+      "originalPrice": 200,
+      "discountedPrice": 160,
+      "country": "USA"
+    },
+    {
+      "id": 17,
+      "name": "New Balance 574",
+      "image": "asset/img/17.PNG",
+      "originalPrice": 270,
+      "discountedPrice": 220,
+      "country": "USA"
+    },
+    {
+      "id": 18,
+      "name": "Vans Sk8-Hi",
+      "image": "asset/img/18.PNG",
+      "originalPrice": 210,
+      "discountedPrice": 170,
+      "country": "USA"
+    },
+    {
+      "id": 19,
+      "name": "ASICS Gel-Kayano",
+      "image": "asset/img/19.PNG",
+      "originalPrice": 310,
+      "discountedPrice": 270,
+      "country": "Japan"
+    },
+    {
+      "id": 20,
+      "name": "Jordan Delta",
+      "image": "asset/img/20.PNG",
+      "originalPrice": 340,
+      "discountedPrice": 290,
+      "country": "USA"
+    },
+    {
+      "id": 21,
+      "name": "Nike Revolution 5",
+      "image": "asset/img/21.PNG",
+      "originalPrice": 180,
+      "discountedPrice": 140,
+      "country": "USA"
+    }
+  ]
+}

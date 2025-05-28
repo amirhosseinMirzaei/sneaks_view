@@ -3,7 +3,9 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../bloc/product_bloc.dart';
+import '../bloc/product_state.dart';
 import '../screens/detail_screen.dart';
 
 class ImageListView extends StatefulWidget {
@@ -13,15 +15,14 @@ class ImageListView extends StatefulWidget {
   final int duration;
 
   @override
-  State<ImageListView> createState() => _State();
+  State<ImageListView> createState() => _ImageListViewState();
 }
 
-class _State extends State<ImageListView> {
+class _ImageListViewState extends State<ImageListView> {
   late ScrollController _scrollController;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _scrollController = ScrollController();
     _scrollController.addListener(() {
@@ -47,34 +48,58 @@ class _State extends State<ImageListView> {
   }
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Transform.rotate(
-      angle: 1.96 * pi,
-      child: SizedBox(
-        height: 130,
-        child: ListView.builder(
-          controller: _scrollController,
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (BuildContext context, int index) {
-            return _ImageTile(image: 'asset/img/${widget.startIndex + index}.PNG');
-          },
-        ),
-      ),
+    return BlocBuilder<ProductBloc, ProductState>(
+      builder: (context, state) {
+        if (state is ProductLoading) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (state is ProductLoaded) {
+          final products = state.products;
+
+          // final visibleProducts = widget.startIndex < products.length ? products.skip(widget.startIndex).take(10).toList() : products;
+
+          return Transform.rotate(
+            angle: 1.96 * pi,
+            child: SizedBox(
+              height: 130,
+              child: ListView.builder(
+                controller: _scrollController,
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  final product = products[index + widget.startIndex];
+
+                  return _ImageTile(imageUrl: product.image);
+                },
+              ),
+            ),
+          );
+        } else if (state is ProductError) {
+          return Center(child: Text('خطا در بارگذاری: ${state.message}'));
+        } else {
+          return const SizedBox();
+        }
+      },
     );
   }
 }
 
 class _ImageTile extends StatelessWidget {
-  final String image;
+  final String imageUrl;
 
-  const _ImageTile({super.key, required this.image});
+  const _ImageTile({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(image: image))),
-      child: Hero(tag: image, child: Image.asset(image, width: 130)),
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(image: imageUrl))),
+      child: Hero(tag: imageUrl, child: Image.asset(imageUrl, width: 130, fit: BoxFit.cover)),
     );
   }
 }

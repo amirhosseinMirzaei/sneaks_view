@@ -2,11 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sneaks_view/widgets/image_list.dart';
 
+import '../bloc/product_bloc.dart';
+import '../bloc/product_event.dart';
+import '../data/repo/product_repository.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+;
+
     return Scaffold(
       backgroundColor: const Color(0xff010101),
       body: Stack(
@@ -18,9 +26,9 @@ class HomeScreen extends StatelessWidget {
                 shaderCallback: (rect) {
                   return LinearGradient(
                     begin: Alignment.topCenter,
-                   end: Alignment.bottomCenter,
+                    end: Alignment.bottomCenter,
                     colors: [Colors.transparent, Colors.transparent, Colors.black.withOpacity(0.8), Colors.black.withOpacity(0.9), Colors.black],
-                    stops: [0, 0.62, 0.67, 0.85,1],
+                    stops: [0, 0.62, 0.67, 0.85, 1],
                   ).createShader(rect);
                 },
                 child: Column(

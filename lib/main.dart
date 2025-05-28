@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:sneaks_view/screens/Home_screen.dart';
 
+import 'bloc/product_bloc.dart';
+import 'bloc/product_event.dart';
+import 'data/repo/product_repository.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+
 void main() {
-  runApp(const MyApp());
+  final client = http.Client();
+  final repository = ProductRepository(client);
+  runApp( BlocProvider(
+    create: (_) => ProductBloc(repository)..add(LoadProducts()),
+    child: const MyApp(),
+  ),);
 }
 
 class MyApp extends StatelessWidget {
