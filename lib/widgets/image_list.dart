@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sneaks_view/data/model/Sneaker.dart';
 import '../bloc/product_bloc.dart';
 import '../bloc/product_state.dart';
 import '../screens/detail_screen.dart';
@@ -75,7 +76,7 @@ class _ImageListViewState extends State<ImageListView> {
                 itemBuilder: (context, index) {
                   final product = products[index + widget.startIndex];
 
-                  return _ImageTile(imageUrl: product.image);
+                  return _ImageTile(product: product);
                 },
               ),
             ),
@@ -91,15 +92,15 @@ class _ImageListViewState extends State<ImageListView> {
 }
 
 class _ImageTile extends StatelessWidget {
-  final String imageUrl;
+  final Product product;
 
-  const _ImageTile({super.key, required this.imageUrl});
+  const _ImageTile({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(image: imageUrl))),
-      child: Hero(tag: imageUrl, child: Image.asset(imageUrl, width: 130, fit: BoxFit.cover)),
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => DetailScreen(product: product))),
+      child: Hero(tag: product.image, child: Image.asset(product.image, width: 130, fit: BoxFit.cover)),
     );
   }
 }

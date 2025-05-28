@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sneaks_view/data/model/Sneaker.dart';
 import 'package:sneaks_view/widgets/animation.dart';
 import 'package:sneaks_view/widgets/blur_container.dart';
 
 class DetailScreen extends StatelessWidget {
-  final String image;
+  final Product product;
 
-  const DetailScreen({super.key, required this.image});
+  const DetailScreen({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class DetailScreen extends StatelessWidget {
         children: [
           Stack(
             children: [
-              Hero(tag: image, child: Image.asset(image)),
+              Hero(tag: product.image, child: Image.asset(product.image)),
               Positioned(
                 bottom: 10,
                 left: 10,
@@ -29,7 +30,7 @@ class DetailScreen extends StatelessWidget {
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white.withOpacity(0.1)),
                       width: 160,
                       height: 40,
-                      child: Text("Nike shoes", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white70, fontSize: 14)),
+                      child: Text(product.name, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white70, fontSize: 14)),
                     ),
                   ),
                 ),
@@ -41,7 +42,7 @@ class DetailScreen extends StatelessWidget {
             delay: const Duration(milliseconds: 800),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text('Jurdan #251', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
+              child: Text(product.name, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
             ),
           ),
           SizedBox(height: 10),
@@ -49,7 +50,7 @@ class DetailScreen extends StatelessWidget {
             delay: const Duration(milliseconds: 1000),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text('Owned by amir', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white70)),
+              child: Text('Manufactured in : ${product.country}', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white70)),
             ),
           ),
           SizedBox(height: 50),
@@ -58,8 +59,15 @@ class DetailScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                FadeInItem(delay: const Duration(milliseconds: 1500), child: _InfoTile(title: "3d 5h 23m", subtitle: "remaining time")),
-                FadeInItem(delay: const Duration(milliseconds: 2000), child: _InfoTile(title: "16.8 ETH", subtitle: "Highest Bid")),
+                FadeInItem(delay: const Duration(milliseconds: 1500), child: _InfoTile(title: "3d 5h 23m", subtitle: "remaining time discount")),
+                FadeInItem(
+                  delay: const Duration(milliseconds: 2000),
+                  child: _InfoTile(title: "\$ ${product.discountedPrice}", subtitle: "current price"),
+                ),
+                FadeInItem(
+                  delay: const Duration(milliseconds: 2200),
+                  child: _InfoTile(title: "\$ ${product.originalPrice}", subtitle: "original price"),
+                ),
               ],
             ),
           ),
